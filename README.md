@@ -19,7 +19,7 @@ Mets chaque image dans le dossier indiqué avec **exactement** ce nom (en minusc
 ### images/logos/
 
 - `images/logos/hina-sushi.png`
-- `images/logos/les-montagnes.png`
+- `images/logos/SASKI.png`
 - `images/logos/neostreet.png`
 - `images/logos/afc.png`
 - `images/logos/logo-05.png`
