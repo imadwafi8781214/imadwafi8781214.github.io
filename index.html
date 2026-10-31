@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Imad El Ouafi, Graphic Designer and Video Editor. Branding, posters, logos and motion design.">
+<title>Imad El Ouafi Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: editorial portfolio. Oversized name hero, project rows with brand-specific cover plates, a reel of vertical video tiles, services, contact. */
+:root{
+  --bg:#EEF0EC;          /* paper with a faint green-grey bias */
+  --surface:#E2E5DF;
+  --fg:#101312;
+  --muted:#5B625E;
+  --line:#C9CEC7;
+  --accent:#3A3FD6;      /* majorelle-style blue */
+  --accent-fg:#FFFFFF;
+  --font-display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --font-body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --font-mono:"DM Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1013;--surface:#171A1F;--fg:#ECEFEA;--muted:#9AA29D;--line:#2A2F35;--accent:#8E92FF;--accent-fg:#0E1013;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1013;--surface:#171A1F;--fg:#ECEFEA;--muted:#9AA29D;--line:#2A2F35;--accent:#8E92FF;--accent-fg:#0E1013;color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:0;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1160px;margin:0 auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{font-family:var(--font-display);font-weight:800;font-size:19px;letter-spacing:-.02em;text-decoration:none}
+nav{display:flex;gap:6px 22px;flex-wrap:wrap;justify-content:flex-end}
+nav a{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--fg)}
+
+/* hero */
+.hero{padding-block:clamp(40px,8vw,96px) clamp(40px,6vw,72px)}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 22px}
+h1{font-family:var(--font-display);font-weight:800;font-size:clamp(52px,12.5vw,168px);line-height:.88;letter-spacing:-.045em;margin:0;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.hero-row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px 64px;margin-top:clamp(28px,4vw,56px);align-items:end}
+.hero p.lead{font-size:clamp(18px,2vw,22px);max-width:34em;margin:0}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;margin:0;font-family:var(--font-mono);font-size:13px}
+.facts dt{color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.facts dd{margin:0}
+
+/* section heads */
+section{padding-block:clamp(40px,6vw,80px);border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:clamp(24px,4vw,48px)}
+h2{font-family:var(--font-display);font-weight:700;font-size:clamp(30px,5vw,56px);letter-spacing:-.03em;line-height:1;margin:0;text-wrap:balance}
+.sec-note{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* projects */
+.project{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px clamp(24px,5vw,64px);align-items:center;padding-block:clamp(20px,3vw,36px)}
+.project + .project{border-top:1px solid var(--line)}
+.project:nth-of-type(even) .plate{order:2}
+.plate{aspect-ratio:4/3;max-width:100%;overflow:hidden;border-radius:4px}
+.plate svg{display:block;width:100%;height:100%}
+.meta{min-width:0}
+.tag{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+h3{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,3.6vw,42px);letter-spacing:-.03em;line-height:1.02;margin:0 0 14px}
+.meta p{margin:0 0 18px;color:var(--muted);max-width:32em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;padding:0;list-style:none}
+.chips li{font-family:var(--font-mono);font-size:12px;border:1px solid var(--line);padding:5px 10px;border-radius:99px}
+.swatches{display:flex;gap:10px;align-items:center;font-family:var(--font-mono);font-size:12px;color:var(--muted)}
+.sw{width:22px;height:22px;border-radius:50%;border:1px solid var(--line);flex:none}
+.link{display:inline-block;margin-top:18px;font-weight:600;text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:2px}
+.link:hover{color:var(--accent)}
+
+/* ticker */
+.ticker{overflow:hidden;border-block:1px solid var(--line);padding-block:14px;margin-bottom:clamp(8px,2vw,24px)}
+.track{display:flex;width:max-content;animation:slide 32s linear infinite}
+.track span{white-space:pre;font-family:var(--font-display);font-weight:800;font-size:clamp(22px,3.4vw,40px);letter-spacing:-.02em;text-transform:uppercase;color:var(--fg)}
+.track span:nth-child(odd){color:var(--accent)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* poster wall */
+.wall{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,36px) clamp(14px,2vw,24px);padding:clamp(20px,3vw,40px);border:1px solid var(--line);border-radius:6px;background-color:var(--surface);background-image:radial-gradient(var(--line) 1.2px,transparent 1.3px);background-size:22px 22px}
+.slot{margin:0;position:relative;min-width:0;display:flex;flex-direction:column;gap:10px}
+.slot.big{grid-column:span 2;grid-row:span 2}
+.sheet{position:relative;aspect-ratio:2/3;max-width:100%;background:var(--c);color:var(--ink);border-radius:2px;padding:14px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.18);transition:transform .25s ease}
+.sheet img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slot.big .sheet{aspect-ratio:auto;flex:1}
+.slot:nth-child(odd) .sheet{transform:rotate(-1.2deg)}
+.slot:nth-child(even) .sheet{transform:rotate(1deg)}
+.slot:hover .sheet{transform:rotate(0) translateY(-5px)}
+.pin{position:absolute;z-index:2;left:50%;top:-6px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--accent);box-shadow:0 2px 4px rgba(0,0,0,.3)}
+.sheet .k{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.sheet .t{font-family:var(--font-display);font-weight:800;font-size:clamp(20px,2.6vw,34px);letter-spacing:-.03em;line-height:.95}
+.slot.big .sheet .t{font-size:clamp(34px,5.5vw,76px)}
+.sheet .s{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.65}
+.slot figcaption{font-family:var(--font-mono);font-size:12px;color:var(--muted);letter-spacing:.04em}
+
+/* reel */
+.reel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.clip{margin:0;min-width:0}
+.screen{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;max-width:100%;isolation:isolate}
+.screen svg{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.play{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;transition:transform .2s}
+.play::after{content:"";border-left:15px solid #101312;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.clip:hover .play{transform:scale(1.1)}
+.dur{position:absolute;right:10px;top:10px;font-family:var(--font-mono);font-size:11px;background:rgba(0,0,0,.55);color:#fff;padding:3px 8px;border-radius:99px}
+.bar{position:absolute;left:12px;right:12px;bottom:12px;height:3px;background:rgba(255,255,255,.3);border-radius:2px}
+.bar i{display:block;height:100%;width:34%;background:#fff;border-radius:2px}
+.clip figcaption{padding-top:12px;font-size:15px}
+.clip figcaption b{display:block;font-family:var(--font-display);font-weight:700;font-size:18px;letter-spacing:-.01em}
+.clip figcaption span{font-family:var(--font-mono);font-size:12px;color:var(--muted);letter-spacing:.04em}
+
+/* logos */
+.logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.logo-slot{margin:0;min-width:0}
+.mark{position:relative;aspect-ratio:1;max-width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px;text-align:center;background:var(--c);color:var(--ink);border-radius:4px;overflow:hidden}
+.mark .nm{font-family:var(--font-display);font-weight:800;font-size:clamp(20px,2.8vw,34px);letter-spacing:-.03em;line-height:1;overflow-wrap:anywhere}
+.mark .hint{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.65}
+.mark.empty{background:transparent;border:1.5px dashed var(--muted);color:var(--muted)}
+.mark .plus{font-family:var(--font-display);font-weight:500;font-size:44px;line-height:1}
+.logo-slot figcaption{padding-top:10px;font-family:var(--font-mono);font-size:12px;color:var(--muted);letter-spacing:.04em}
+.wall.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+/* video places */
+.sub{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;font-family:var(--font-display);font-weight:700;font-size:clamp(24px,3vw,36px);letter-spacing:-.02em;line-height:1;margin:0 0 16px}
+.sub span{font-family:var(--font-mono);font-weight:400;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.films{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:clamp(36px,5vw,72px)}
+.film{margin:0;min-width:0}
+.film.feature{grid-column:1/-1}
+.frame{position:relative;aspect-ratio:16/9;max-width:100%;overflow:hidden;border-radius:6px;background:#0F1113;isolation:isolate}
+.frame svg{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.frame .play{width:68px;height:68px;margin:-34px 0 0 -34px}
+.frame .tagc{position:absolute;left:12px;top:12px;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:rgba(0,0,0,.65);color:#fff;padding:4px 10px;border-radius:99px}
+.frame .hint{position:absolute;left:12px;bottom:12px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:rgba(0,0,0,.65);color:#fff;padding:4px 10px;border-radius:99px}
+.film:hover .play{transform:scale(1.1)}
+.film figcaption{padding-top:12px}
+.film figcaption b{display:block;font-family:var(--font-display);font-weight:700;font-size:20px;letter-spacing:-.01em}
+.film figcaption span{font-family:var(--font-mono);font-size:12px;color:var(--muted);letter-spacing:.04em}
+.sub + .reel{margin-bottom:0}
+@media (max-width:640px){
+  .logos{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .films{grid-template-columns:minmax(0,1fr)}
+  .wall.three{grid-template-columns:minmax(0,1fr)}
+}
+
+/* feed 4:5 */
+.feed-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.feed-videos{margin-bottom:clamp(36px,5vw,72px)}
+.post{margin:0;min-width:0}
+.art{position:relative;aspect-ratio:4/5;max-width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px;text-align:center;overflow:hidden;isolation:isolate}
+.art.poster{background:var(--surface);border:1.5px dashed var(--muted);color:var(--muted)}
+.art .sz{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.art .nm{font-family:var(--font-display);font-weight:800;font-size:clamp(22px,3vw,36px);letter-spacing:-.03em;line-height:1;color:var(--fg)}
+.art .hint{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.art.video{background:#0F1113;color:#fff;border-radius:4px}
+.art.video .play{width:64px;height:64px;margin:-32px 0 0 -32px}
+.art.video .tagc{position:absolute;left:12px;top:12px;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.16);padding:4px 10px;border-radius:99px}
+.art.video .sz{position:absolute;right:12px;top:14px}
+.art.video .hint{position:absolute;left:12px;bottom:12px;right:12px;text-align:left;opacity:.8}
+.post:hover .play{transform:scale(1.1)}
+.post figcaption{padding-top:10px;font-family:var(--font-mono);font-size:12px;color:var(--muted);letter-spacing:.04em}
+@media (max-width:760px){.feed-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* contact details */
+.reach{margin:0 0 28px;max-width:680px}
+.reach>div{display:flex;align-items:center;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;padding-block:14px;border-top:1px solid var(--line)}
+.reach>div:last-child{border-bottom:1px solid var(--line)}
+.reach dt{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);min-width:5em}
+.reach dd{margin:0;display:flex;align-items:center;gap:14px;flex-wrap:wrap;min-width:0}
+.reach .val{font-family:var(--font-display);font-weight:700;font-size:clamp(20px,3vw,30px);letter-spacing:-.02em;overflow-wrap:anywhere;user-select:all}
+.copy{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:none;color:var(--fg);border:1px solid var(--fg);padding:6px 12px;border-radius:99px;cursor:pointer}
+.copy:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,5vw,64px);margin:0;padding:0;list-style:none}
+.services li{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding-block:18px;border-top:1px solid var(--line)}
+.services strong{font-family:var(--font-display);font-weight:700;font-size:clamp(20px,2.4vw,28px);letter-spacing:-.02em}
+.services span{font-family:var(--font-mono);font-size:12px;color:var(--muted);text-align:right}
+
+/* contact */
+.contact{padding-bottom:clamp(56px,8vw,112px)}
+.contact h2{font-size:clamp(40px,9vw,120px);letter-spacing:-.04em;line-height:.92;margin-bottom:28px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;font-weight:600;text-decoration:none;padding:14px 24px;border-radius:99px;border:1.5px solid var(--fg)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.btn:hover{transform:translateY(-2px)}
+.btn{transition:transform .2s}
+footer{border-top:1px solid var(--line);padding-block:20px;font-family:var(--font-mono);font-size:12px;color:var(--muted)}
+
+@media (max-width:900px){
+  .reel{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .hero-row,.project,.services{grid-template-columns:minmax(0,1fr)}
+  .project:nth-of-type(even) .plate{order:0}
+  nav{gap:4px 14px}
+  .wall{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .slot.big{grid-row:auto}
+  .slot.big .sheet{aspect-ratio:4/3;flex:none}
+}
+/* real images (fall back to the placeholders when a file is missing) */
+.plate{position:relative}
+.plate img,.mark img,.art img,.frame img,.screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mark img{object-fit:contain;padding:12px}
+.plate.has-img svg{display:none}
+.sheet.has-img>span{visibility:hidden}
+.mark.has-img>span{display:none}
+.mark.empty.has-img{border:0;background:var(--c,transparent)}
+.art.has-img>span:not(.play){display:none}
+.art.poster.has-img{border:0}
+.art.poster img{object-fit:contain}
+.wall{align-items:start}
+.sheet.s45{aspect-ratio:4/5}
+.sheet.s916{aspect-ratio:9/16}
+.slot.big .sheet.s45{aspect-ratio:4/5;flex:none}
+
+.a4wrap{margin-top:clamp(32px,5vw,56px)}
+.a4grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+@media (max-width:900px){.a4grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.a4grid{align-items:start}
+.art.poster.a4.has-img{aspect-ratio:auto;padding:0;display:block;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+.art.poster.a4.has-img img{position:static;width:100%;height:auto;display:block}
+.art.a4 .nm{font-size:clamp(15px,1.8vw,22px);overflow-wrap:anywhere}
+@media (max-width:640px){.a4grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.a4link{display:block;color:inherit;text-decoration:none;pointer-events:none}
+.a4link:has(.has-img){pointer-events:auto;cursor:zoom-in}
+.art.poster.a4{aspect-ratio:210/297}
+.art.poster.a4.has-img{box-shadow:0 1px 4px rgba(0,0,0,.15)}
+
+.frame.has-img .hint{display:none}
+[data-video]:not([data-video=""]){cursor:pointer}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .play,.btn,.sheet{transition:none}
+  .track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Imad El Ouafi</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#logos">Logos</a>
+      <a href="#posters">Posters</a>
+      <a href="#reel">Video</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <p class="eyebrow">Graphic Designer &amp; Video Editor</p>
+    <h1>Imad <em>El Ouafi</em></h1>
+    <div class="hero-row">
+      <p class="lead">A creative Graphic Designer and Video Editor specializing in visual identity, branding, digital content, and motion design. Passionate about transforming ideas into impactful visual experiences through creativity, precision, and attention to detail.</p>
+      <dl class="facts">
+        <dt>Based</dt><dd>Azrou, Morocco</dd>
+        <dt>Internship</dt><dd>Al Akhawayn University</dd>
+        <dt>Works with</dt><dd>University, restaurants, cafes, fashion</dd>
+        <dt>Delivers</dt><dd>Brand, social, print, video</dd>
+        <dt>Languages</dt><dd>Arabic, English, Français, Deutsch</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="track">
+      <span>Open Doors / Posters / Logos / Brand identity / After Effects / Al Akhawayn University / Social media / </span>
+      <span>Open Doors / Posters / Logos / Brand identity / After Effects / Al Akhawayn University / Social media / </span>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="sec-head"><h2>Selected work</h2><span class="sec-note">5 projects</span></div>
+
+    <article class="project">
+      <div class="plate" role="img" aria-label="Open Doors poster cover: three arched doors, the middle one open and glowing"><img src="images/projects/open-doors.jpg" alt="open doors" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+          <rect width="800" height="600" fill="#0E3B2C"/>
+          <path d="M90 520V320a100 100 0 0 1 200 0V520Z" fill="#164F3B"/>
+          <path d="M300 520V320a100 100 0 0 1 200 0V520Z" fill="#F2E6C2"/>
+          <path d="M340 520V330a60 60 0 0 1 120 0V520Z" fill="#E6C873"/>
+          <path d="M510 520V320a100 100 0 0 1 200 0V520Z" fill="#164F3B"/>
+          <rect x="40" y="520" width="720" height="6" fill="#F2E6C2" opacity=".5"/>
+          <text x="48" y="110" font-family="Bricolage Grotesque, Arial, sans-serif" font-weight="800" font-size="92" letter-spacing="-3" fill="#F2E6C2">OPEN DOORS</text>
+          <text x="52" y="152" font-family="DM Mono, monospace" font-size="19" letter-spacing="5" fill="#E6C873">AL AKHAWAYN UNIVERSITY · IFRANE</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <p class="tag">Internship · Posters</p>
+        <h3>Al Akhawayn University</h3>
+        <p>During my internship I designed posters for the university, including the Open Doors poster. Each one had to read from across a hall and still match the campus look.</p>
+        <ul class="chips"><li>Open Doors</li><li>Event posters</li><li>Campus communication</li></ul>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="plate" role="img" aria-label="Hina Sushi brand cover: coral sun on a dark background"><img src="images/projects/hina-sushi.jpg" alt="hina sushi" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+          <rect width="800" height="600" fill="#17100E"/>
+          <circle cx="560" cy="250" r="190" fill="#E67555"/>
+          <rect x="0" y="330" width="800" height="270" fill="#17100E"/>
+          <g stroke="#DAD378" stroke-width="3" fill="none" opacity=".9">
+            <path d="M0 400 q50 -24 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0"/>
+            <path d="M0 440 q50 -24 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0" opacity=".6"/>
+            <path d="M0 480 q50 -24 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0" opacity=".35"/>
+          </g>
+          <text x="48" y="130" font-family="Bricolage Grotesque, Arial, sans-serif" font-weight="800" font-size="120" letter-spacing="-4" fill="#E67555">Hina</text>
+          <text x="52" y="178" font-family="DM Mono, monospace" font-size="22" letter-spacing="5" fill="#DAD378">A TASTE OF JAPAN</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <p class="tag">Branding · Digital menu</p>
+        <h3>Hina Sushi</h3>
+        <p>A full brand for a sushi spot in Azrou, built around a coral sun on dark. The client then asked for a digital menu, so the handwritten notebook menu became a clean, tappable one.</p>
+        <ul class="chips"><li>Logo</li><li>Brand posts</li><li>Digital menu</li></ul>
+        <div class="swatches"><span class="sw" style="background:#E67555"></span>#E67555<span class="sw" style="background:#DAD378"></span>#DAD378</div>
+        <a class="link" href="https://instagram.com/hina.sushi_azrou" rel="noopener">@hina.sushi_azrou</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="plate" role="img" aria-label="Les Montagnes cover: olive mountains on beige"><img src="images/projects/les-montagnes.jpg" alt="les montagnes" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+          <rect width="800" height="600" fill="#E8DDC4"/>
+          <circle cx="600" cy="170" r="62" fill="#C9A24D"/>
+          <path d="M-20 600 L220 220 L360 420 L470 300 L840 600Z" fill="#5E6B3B"/>
+          <path d="M120 600 L330 330 L440 480 L560 360 L700 600Z" fill="#46522B"/>
+          <path d="M220 220 l-44 70 q22 14 44 -2 q22 16 44 2z" fill="#E8DDC4"/>
+          <text x="48" y="96" font-family="Bricolage Grotesque, Arial, sans-serif" font-weight="800" font-size="66" letter-spacing="-2" fill="#3A4423">Les Montagnes</text>
+          <text x="50" y="132" font-family="DM Mono, monospace" font-size="20" letter-spacing="5" fill="#8A6B22">RESTAURANT · CAFE · PLAY AREA</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <p class="tag">Social media · Posters</p>
+        <h3>Les Montagnes</h3>
+        <p>Monthly Instagram content for a restaurant and cafe with a kids' play area. Beige and gold with olive green, a mountain mark, menu posters and a reusable cocktail poster template.</p>
+        <ul class="chips"><li>Instagram feed</li><li>A4 menu poster</li><li>Cocktail poster template</li></ul>
+        <div class="swatches"><span class="sw" style="background:#E8DDC4"></span><span class="sw" style="background:#C9A24D"></span><span class="sw" style="background:#5E6B3B"></span>Beige · Gold · Olive</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="plate" role="img" aria-label="NeoStreet cover: black streetwear grid with outlined lettering"><img src="images/projects/neostreet.jpg" alt="neostreet" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+          <rect width="800" height="600" fill="#0B0B0C"/>
+          <g fill="#1B1B1E">
+            <rect x="48" y="300" width="216" height="216"/><rect x="292" y="300" width="216" height="216"/><rect x="536" y="300" width="216" height="216"/>
+          </g>
+          <rect x="292" y="300" width="216" height="216" fill="#3A3FD6"/>
+          <text x="400" y="440" text-anchor="middle" font-family="Bricolage Grotesque, Arial, sans-serif" font-weight="800" font-size="78" fill="#fff">N/S</text>
+          <text x="40" y="236" font-family="Bricolage Grotesque, Arial, sans-serif" font-weight="800" font-size="190" letter-spacing="-8" fill="none" stroke="#F2F2F0" stroke-width="3">NEO</text>
+          <text x="48" y="276" font-family="DM Mono, monospace" font-size="20" letter-spacing="6" fill="#9A9AA0">STREET · @NEOSTREET__</text>
+        </svg>
+      </div>
+      <div class="meta">
+        <p class="tag">Own brand · Streetwear</p>
+        <h3>NeoStreet</h3>
+        <p>My own streetwear label. I run the identity, the Instagram grid and the product posts, and every post is built to drive orders.</p>
+        <ul class="chips"><li>Identity</li><li>Instagram grid</li><li>Product posts</li></ul>
+        <a class="link" href="https://instagram.com/neostreet__" rel="noopener">@neostreet__</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="plate" role="img" aria-label="AFC cover: a series of three fashion posters"><img src="images/projects/afc.jpg" alt="afc" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+          <rect width="800" height="600" fill="#D9D6CF"/>
+          <g>
+            <rect x="70" y="80" width="200" height="440" fill="#14161A"/>
+            <rect x="300" y="80" width="200" height="440" fill="#F4F2EC"/>
+            <rect x="530" y="80" width="200" height="440" fill="#7A1F2B"/>
+          </g>
+          <g font-family="Bricolage Grotesque, Arial, sans-serif" font-weight="800" text-anchor="middle">
+            <text x="170" y="320" font-size="76" fill="#F4F2EC" letter-spacing="-2">AFC</text>
+            <text x="400" y="320" font-size="76" fill="#14161A" letter-spacing="-2">AFC</text>
+            <text x="630" y="320" font-size="76" fill="#F4F2EC" letter-spacing="-2">AFC</text>
+          </g>
+          <g font-family="DM Mono, monospace" font-size="13" letter-spacing="3" text-anchor="middle">
+            <text x="170" y="360" fill="#B9B6AE">I</text><text x="400" y="360" fill="#6B6860">II</text><text x="630" y="360" fill="#E0B9BE">III</text>
+          </g>
+        </svg>
+      </div>
+      <div class="meta">
+        <p class="tag">Poster series · Fashion</p>
+        <h3>AFC</h3>
+        <p>Three posters for a classic clothing brand. The work is quiet and tailored, not streetwear, and the three read as one series with the same grid, type and spacing.</p>
+        <ul class="chips"><li>3 posters</li><li>Series system</li><li>Classic fashion</li></ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="logos">
+    <div class="sec-head"><h2>Logos</h2><span class="sec-note">Marks I designed</span></div>
+    <div class="logos">
+      <figure class="logo-slot"><div class="mark" style="--c:#000000;--ink:#E67555"><img src="images/logos/hina-sushi.png" alt="hina sushi" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="nm">Hina Sushi</span><span class="hint">Logo here</span></div><figcaption>Hina Sushi</figcaption></figure>
+      <figure class="logo-slot"><div class="mark" style="--c:#FFFFFF;--ink:#3A4423"><img src="images/logos/les-montagnes.png" alt="Berbère logo" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="nm">Berbère</span><span class="hint">Logo here</span></div><figcaption>Berbère</figcaption></figure>
+      <figure class="logo-slot"><div class="mark" style="--c:#FFFFFF;--ink:#111111"><img src="images/logos/neostreet.png" alt="neostreet" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="nm">NeoStreet</span><span class="hint">Logo here</span></div><figcaption>NeoStreet</figcaption></figure>
+      <figure class="logo-slot"><div class="mark" style="--c:#FFFFFF;--ink:#111111"><img src="images/logos/afc.png" alt="Gaming School logo" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="nm">Gaming School</span><span class="hint">Logo here</span></div><figcaption>Gaming School</figcaption></figure>
+      <figure class="logo-slot"><div class="mark empty" style="--c:#E6E7E8"><img src="images/logos/logo-05.png" alt="Mini Puzzle logo" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="plus">+</span><span class="hint">Logo 05</span></div><figcaption>Mini Puzzle</figcaption></figure>
+      <figure class="logo-slot"><div class="mark empty" style="--c:#FCEEDB"><img src="images/logos/logo-06.png" alt="Fast Go Delivery logo" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="plus">+</span><span class="hint">Logo 06</span></div><figcaption>Fast Go Delivery</figcaption></figure>
+    </div>
+
+    <div class="a4wrap">
+      <h3 class="sub">Brand guidelines <span>Logo charts</span></h3>
+      <div class="a4grid">
+      <figure class="post"><a class="a4link" href="images/logos/guidelines-berbere.jpg" target="_blank" rel="noopener"><div class="art poster a4"><img src="images/logos/guidelines-berbere.jpg" alt="Berbère brand guidelines" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="sz">A4</span><span class="nm">Berbère</span><span class="hint">Guidelines</span></div></a><figcaption>Berbère</figcaption></figure>
+      <figure class="post"><a class="a4link" href="images/logos/guidelines-hina-sushi.jpg" target="_blank" rel="noopener"><div class="art poster a4"><img src="images/logos/guidelines-hina-sushi.jpg" alt="Hina Sushi brand guidelines" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="sz">A4</span><span class="nm">Hina Sushi</span><span class="hint">Guidelines</span></div></a><figcaption>Hina Sushi</figcaption></figure>
+      <figure class="post"><a class="a4link" href="images/logos/guidelines-gaming-school.jpg" target="_blank" rel="noopener"><div class="art poster a4"><img src="images/logos/guidelines-gaming-school.jpg" alt="Gaming School brand guidelines" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="sz">A4</span><span class="nm">Gaming School</span><span class="hint">Guidelines</span></div></a><figcaption>Gaming School</figcaption></figure>
+      <figure class="post"><a class="a4link" href="images/logos/guidelines-mini-puzzle.jpg" target="_blank" rel="noopener"><div class="art poster a4"><img src="images/logos/guidelines-mini-puzzle.jpg" alt="Mini Puzzle brand guidelines" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="sz">A4</span><span class="nm">Mini Puzzle</span><span class="hint">Guidelines</span></div></a><figcaption>Mini Puzzle</figcaption></figure>
+      <figure class="post"><a class="a4link" href="images/logos/guidelines-fast-go.jpg" target="_blank" rel="noopener"><div class="art poster a4"><img src="images/logos/guidelines-fast-go.jpg" alt="Fast Go Delivery brand guidelines" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="sz">A4</span><span class="nm">Fast Go Delivery</span><span class="hint">Guidelines</span></div></a><figcaption>Fast Go Delivery</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="posters">
+    <div class="sec-head"><h2>Al Akhawayn posters</h2><span class="sec-note">Internship · 1080 × 1350 &amp; 1080 × 1920</span></div>
+    <div class="wall">
+      <figure class="slot big" style="--c:#0E3B2C;--ink:#F2E6C2"><span class="pin"></span>
+        <div class="sheet s45"><img src="images/posters/al-akhawayn-01.jpg" alt="al akhawayn 01" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="k">Al Akhawayn University</span><span class="t">Open<br>Doors</span><span class="s">1080 × 1350</span></div>
+        <figcaption>Al Akhawayn University · Open Doors</figcaption></figure>
+      <figure class="slot" style="--c:#F2E6C2;--ink:#0E3B2C"><span class="pin"></span>
+        <div class="sheet s45"><img src="images/posters/al-akhawayn-02.jpg" alt="al akhawayn 02" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="k">Al Akhawayn</span><span class="t">Poster 02</span><span class="s">1080 × 1350</span></div>
+        <figcaption>Al Akhawayn University</figcaption></figure>
+      <figure class="slot" style="--c:#1F6B4E;--ink:#FFFFFF"><span class="pin"></span>
+        <div class="sheet s45"><img src="images/posters/al-akhawayn-03.jpg" alt="al akhawayn 03" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="k">Al Akhawayn</span><span class="t">Poster 03</span><span class="s">1080 × 1350</span></div>
+        <figcaption>Al Akhawayn University</figcaption></figure>
+      <figure class="slot" style="--c:#E6C873;--ink:#0E3B2C"><span class="pin"></span>
+        <div class="sheet s45"><img src="images/posters/al-akhawayn-04.jpg" alt="al akhawayn 04" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="k">Al Akhawayn</span><span class="t">Poster 04</span><span class="s">1080 × 1350</span></div>
+        <figcaption>Al Akhawayn University</figcaption></figure>
+      <figure class="slot" style="--c:#164F3B;--ink:#F2E6C2"><span class="pin"></span>
+        <div class="sheet s45"><img src="images/posters/al-akhawayn-05.jpg" alt="al akhawayn 05" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="k">Al Akhawayn</span><span class="t">Poster 05</span><span class="s">1080 × 1350</span></div>
+        <figcaption>Al Akhawayn University</figcaption></figure>
+      <figure class="slot" style="--c:#DCE8DF;--ink:#0E3B2C"><span class="pin"></span>
+        <div class="sheet s916"><img src="images/posters/al-akhawayn-06.jpg" alt="al akhawayn 06" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="k">Al Akhawayn</span><span class="t">Poster 06</span><span class="s">1080 × 1920</span></div>
+        <figcaption>Al Akhawayn University</figcaption></figure>
+      <figure class="slot" style="--c:#0E3B2C;--ink:#E6C873"><span class="pin"></span>
+        <div class="sheet s916"><img src="images/posters/al-akhawayn-07.jpg" alt="al akhawayn 07" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="k">Al Akhawayn</span><span class="t">Poster 07</span><span class="s">1080 × 1920</span></div>
+        <figcaption>Al Akhawayn University</figcaption></figure>
+      <figure class="slot" style="--c:#F2E6C2;--ink:#1F6B4E"><span class="pin"></span>
+        <div class="sheet s916"><img src="images/posters/al-akhawayn-08.jpg" alt="al akhawayn 08" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="k">Al Akhawayn</span><span class="t">Poster 08</span><span class="s">1080 × 1920</span></div>
+        <figcaption>Al Akhawayn University</figcaption></figure>
+      <figure class="slot" style="--c:#1F6B4E;--ink:#F2E6C2"><span class="pin"></span>
+        <div class="sheet s916"><img src="images/posters/al-akhawayn-09.jpg" alt="al akhawayn 09" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="k">Al Akhawayn</span><span class="t">Poster 09</span><span class="s">1080 × 1920</span></div>
+        <figcaption>Al Akhawayn University</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="afc">
+    <div class="sec-head"><h2>AFC posters</h2><span class="sec-note">Series of 3 · Classic fashion</span></div>
+    <div class="wall three">
+      <figure class="slot" style="--c:#14161A;--ink:#F4F2EC"><span class="pin"></span>
+        <div class="sheet"><img src="images/posters/afc-01.jpg" alt="afc 01" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="k">AFC · I</span><span class="t">AFC</span><span class="s">Poster 1 of 3</span></div>
+        <figcaption>AFC · poster 1</figcaption></figure>
+      <figure class="slot" style="--c:#F4F2EC;--ink:#14161A"><span class="pin"></span>
+        <div class="sheet"><img src="images/posters/afc-02.jpg" alt="afc 02" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="k">AFC · II</span><span class="t">AFC</span><span class="s">Poster 2 of 3</span></div>
+        <figcaption>AFC · poster 2</figcaption></figure>
+      <figure class="slot" style="--c:#7A1F2B;--ink:#F4F2EC"><span class="pin"></span>
+        <div class="sheet"><img src="images/posters/afc-03.jpg" alt="afc 03" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="k">AFC · III</span><span class="t">AFC</span><span class="s">Poster 3 of 3</span></div>
+        <figcaption>AFC · poster 3</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="brands">
+    <div class="sec-head"><h2>Brand posters</h2><span class="sec-note">Les Montagnes · Hina Sushi · NeoStreet</span></div>
+    <div class="wall">
+      <figure class="slot" style="--c:#E8DDC4;--ink:#3A4423"><span class="pin"></span>
+        <div class="sheet"><img src="images/posters/les-montagnes-cocktail.jpg" alt="les montagnes cocktail" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="k">Les Montagnes</span><span class="t">Cocktail poster</span><span class="s">Poster</span></div>
+        <figcaption>Les Montagnes</figcaption></figure>
+      <figure class="slot" style="--c:#5E6B3B;--ink:#E8DDC4"><span class="pin"></span>
+        <div class="sheet"><img src="images/posters/les-montagnes-menu.jpg" alt="les montagnes menu" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="k">Les Montagnes</span><span class="t">Menu poster</span><span class="s">A4</span></div>
+        <figcaption>Les Montagnes</figcaption></figure>
+      <figure class="slot" style="--c:#17100E;--ink:#E67555"><span class="pin"></span>
+        <div class="sheet"><img src="images/posters/hina-sushi-taste-of-japan.jpg" alt="hina sushi taste of japan" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="k">Hina Sushi</span><span class="t">A Taste of Japan</span><span class="s">Brand post</span></div>
+        <figcaption>Hina Sushi</figcaption></figure>
+      <figure class="slot" style="--c:#0B0B0C;--ink:#F2F2F0"><span class="pin"></span>
+        <div class="sheet"><img src="images/posters/neostreet-drop.jpg" alt="neostreet drop" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="k">NeoStreet</span><span class="t">Drop poster</span><span class="s">Poster</span></div>
+        <figcaption>NeoStreet</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="feed">
+    <div class="sec-head"><h2>More posters</h2><span class="sec-note">1080 × 1350 · 8 places</span></div>
+    <div class="feed-grid">
+      <figure class="post"><div class="art poster"><img src="images/posters/poster-01.jpg" alt="How do you start change, Arabic motivational poster" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="sz">1080 × 1350</span><span class="nm">Poster 01</span><span class="hint">Replace with your poster</span></div><figcaption>Poster 01 · 4:5</figcaption></figure>
+      <figure class="post"><div class="art poster"><img src="images/posters/poster-02.jpg" alt="Fyodor Dostoevsky poster" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="sz">1080 × 1350</span><span class="nm">Poster 02</span><span class="hint">Replace with your poster</span></div><figcaption>Poster 02 · 4:5</figcaption></figure>
+      <figure class="post"><div class="art poster"><img src="images/posters/poster-03.jpg" alt="Arabic history poster about Germany in World War II" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="sz">1080 × 1350</span><span class="nm">Poster 03</span><span class="hint">Replace with your poster</span></div><figcaption>Poster 03 · 4:5</figcaption></figure>
+      <figure class="post"><div class="art poster"><img src="images/posters/poster-04.jpg" alt="Every child has an idea worth growing, poster" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="sz">1080 × 1350</span><span class="nm">Poster 04</span><span class="hint">Replace with your poster</span></div><figcaption>Poster 04 · 4:5</figcaption></figure>
+      <figure class="post"><div class="art poster"><img src="images/posters/poster-05.jpg" alt="An endless journey of discovery, poster" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="sz">1080 × 1350</span><span class="nm">Poster 05</span><span class="hint">Replace with your poster</span></div><figcaption>Poster 05 · 4:5</figcaption></figure>
+      <figure class="post"><div class="art poster"><img src="images/posters/poster-06.jpg" alt="Lamine Yamal football poster" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="sz">1080 × 1350</span><span class="nm">Poster 06</span><span class="hint">Replace with your poster</span></div><figcaption>Poster 06 · 4:5</figcaption></figure>
+      <figure class="post"><div class="art poster"><img src="images/posters/poster-07.jpg" alt="73rd anniversary of the Revolution of the King and the People, Al Akhawayn University" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="sz">1080 × 1350</span><span class="nm">Poster 07</span><span class="hint">Replace with your poster</span></div><figcaption>Poster 07 · 4:5</figcaption></figure>
+      <figure class="post"><div class="art poster"><img src="images/posters/poster-08.jpg" alt="Open Doors poster, Al Akhawayn University" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="sz">1080 × 1350</span><span class="nm">Poster 08</span><span class="hint">Replace with your poster</span></div><figcaption>Poster 08 · 4:5</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="reel">
+    <div class="sec-head"><h2>Video</h2><span class="sec-note">After Effects · Reels · Stories</span></div>
+
+    <h3 class="sub">Al Akhawayn University <span>After Effects</span></h3>
+    <div class="films">
+      <figure class="film feature">
+        <div class="frame" role="img" aria-label="Al Akhawayn · After Effects 01 video placeholder" data-video=""><img src="images/videos/al-akhawayn-ae-01.jpg" alt="al akhawayn ae 01" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+          <svg viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice"><rect width="640" height="360" fill="#0E3B2C"/><path d="M90 300V190a60 60 0 0 1 120 0V300Z" fill="#164F3B"/><path d="M260 300V180a60 60 0 0 1 120 0V300Z" fill="#F2E6C2"/><path d="M290 300V190a30 30 0 0 1 60 0V300Z" fill="#E6C873"/><path d="M430 300V190a60 60 0 0 1 120 0V300Z" fill="#164F3B"/></svg>
+          <span class="tagc">After Effects</span><span class="play"></span><span class="hint">Video goes here · 16:9</span>
+        </div>
+        <figcaption><b>Al Akhawayn · After Effects 01</b><span>Main video</span></figcaption>
+      </figure>
+      <figure class="film">
+        <div class="frame" role="img" aria-label="Al Akhawayn · After Effects 02 video placeholder" data-video=""><img src="images/videos/al-akhawayn-ae-02.jpg" alt="al akhawayn ae 02" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+          <svg viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice"><rect width="640" height="360" fill="#164F3B"/><circle cx="320" cy="180" r="90" fill="#E6C873"/><path d="M0 280 q40 -20 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" stroke="#F2E6C2" stroke-width="3" fill="none"/></svg>
+          <span class="tagc">After Effects</span><span class="play"></span><span class="hint">Video goes here · 16:9</span>
+        </div>
+        <figcaption><b>Al Akhawayn · After Effects 02</b><span>Video</span></figcaption>
+      </figure>
+      <figure class="film">
+        <div class="frame" role="img" aria-label="Al Akhawayn · After Effects 03 video placeholder" data-video=""><img src="images/videos/al-akhawayn-ae-03.jpg" alt="al akhawayn ae 03" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+          <svg viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice"><rect width="640" height="360" fill="#F2E6C2"/><rect x="60" y="70" width="520" height="220" fill="#0E3B2C"/><rect x="100" y="110" width="200" height="12" fill="#E6C873"/><rect x="100" y="140" width="320" height="12" fill="#F2E6C2" opacity=".6"/></svg>
+          <span class="tagc">After Effects</span><span class="play"></span><span class="hint">Video goes here · 16:9</span>
+        </div>
+        <figcaption><b>Al Akhawayn · After Effects 03</b><span>Video</span></figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sub">Les Montagnes <span>Restaurant · Cafe</span></h3>
+    <div class="films">
+      <figure class="film">
+        <div class="frame" role="img" aria-label="Les Montagnes · Video 01 video placeholder" data-video=""><img src="images/videos/les-montagnes-01.jpg" alt="les montagnes 01" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+          <svg viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice"><rect width="640" height="360" fill="#E8DDC4"/><path d="M-20 360 L170 150 L280 280 L370 200 L660 360Z" fill="#5E6B3B"/><path d="M110 360 L270 210 L360 320 L450 230 L560 360Z" fill="#46522B"/><circle cx="500" cy="90" r="40" fill="#C9A24D"/></svg>
+          <span class="tagc">Video</span><span class="play"></span><span class="hint">Video goes here · 16:9</span>
+        </div>
+        <figcaption><b>Les Montagnes · Video 01</b><span>Video</span></figcaption>
+      </figure>
+      <figure class="film">
+        <div class="frame" role="img" aria-label="Les Montagnes · Video 02 video placeholder" data-video=""><img src="images/videos/les-montagnes-02.jpg" alt="les montagnes 02" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+          <svg viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice"><rect width="640" height="360" fill="#5E6B3B"/><circle cx="320" cy="180" r="84" fill="#E8DDC4"/><path d="M250 215 L320 120 L390 215Z" fill="#46522B"/></svg>
+          <span class="tagc">Video</span><span class="play"></span><span class="hint">Video goes here · 16:9</span>
+        </div>
+        <figcaption><b>Les Montagnes · Video 02</b><span>Video</span></figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sub">Feed videos <span>1080 × 1350</span></h3>
+    <div class="feed-grid feed-videos">
+      <figure class="post"><div class="art video" data-video=""><img src="images/videos/feed-01.jpg" alt="feed 01" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="tagc">Video</span><span class="sz">1080 × 1350</span><span class="play"></span><span class="hint">Video 01 goes here</span></div><figcaption>Video 01 · 4:5</figcaption></figure>
+      <figure class="post"><div class="art video" data-video=""><img src="images/videos/feed-02.jpg" alt="feed 02" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="tagc">Video</span><span class="sz">1080 × 1350</span><span class="play"></span><span class="hint">Video 02 goes here</span></div><figcaption>Video 02 · 4:5</figcaption></figure>
+      <figure class="post"><div class="art video" data-video=""><img src="images/videos/feed-03.jpg" alt="feed 03" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="tagc">Video</span><span class="sz">1080 × 1350</span><span class="play"></span><span class="hint">Video 03 goes here</span></div><figcaption>Video 03 · 4:5</figcaption></figure>
+      <figure class="post"><div class="art video" data-video=""><img src="images/videos/feed-04.jpg" alt="feed 04" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span class="tagc">Video</span><span class="sz">1080 × 1350</span><span class="play"></span><span class="hint">Video 04 goes here</span></div><figcaption>Video 04 · 4:5</figcaption></figure>
+    </div>
+
+    <h3 class="sub">Reels &amp; stories <span>9:16</span></h3>
+    <div class="reel">
+      <figure class="clip">
+        <div class="screen" role="img" aria-label="Brand reel preview, dark with a coral sun" data-video=""><img src="images/videos/reel-brand.jpg" alt="reel brand" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+          <svg viewBox="0 0 270 480" preserveAspectRatio="xMidYMid slice"><rect width="270" height="480" fill="#17100E"/><circle cx="135" cy="200" r="86" fill="#E67555"/><path d="M0 320 q34 -16 68 0 t68 0 t68 0 t68 0" stroke="#DAD378" stroke-width="3" fill="none"/></svg>
+          <span class="dur">0:18</span><span class="play"></span><span class="bar"><i></i></span>
+        </div>
+        <figcaption><b>Brand reel</b><span>Restaurant · 9:16</span></figcaption>
+      </figure>
+      <figure class="clip">
+        <div class="screen" role="img" aria-label="Menu motion preview, beige with olive mountains" data-video=""><img src="images/videos/reel-menu.jpg" alt="reel menu" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+          <svg viewBox="0 0 270 480" preserveAspectRatio="xMidYMid slice"><rect width="270" height="480" fill="#E8DDC4"/><path d="M-10 480 L90 250 L150 360 L200 290 L290 480Z" fill="#5E6B3B"/><circle cx="195" cy="120" r="34" fill="#C9A24D"/></svg>
+          <span class="dur">0:12</span><span class="play"></span><span class="bar"><i></i></span>
+        </div>
+        <figcaption><b>Menu motion</b><span>Cafe · 9:16</span></figcaption>
+      </figure>
+      <figure class="clip">
+        <div class="screen" role="img" aria-label="Drop teaser preview, black with blue block" data-video=""><img src="images/videos/reel-drop.jpg" alt="reel drop" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+          <svg viewBox="0 0 270 480" preserveAspectRatio="xMidYMid slice"><rect width="270" height="480" fill="#0B0B0C"/><rect x="40" y="150" width="190" height="190" fill="#3A3FD6"/><text x="135" y="262" text-anchor="middle" font-family="Bricolage Grotesque, Arial, sans-serif" font-weight="800" font-size="54" fill="#fff">DROP</text></svg>
+          <span class="dur">0:09</span><span class="play"></span><span class="bar"><i></i></span>
+        </div>
+        <figcaption><b>Drop teaser</b><span>Streetwear · 9:16</span></figcaption>
+      </figure>
+      <figure class="clip">
+        <div class="screen" role="img" aria-label="Lookbook story preview, three panels in grey, white and wine" data-video=""><img src="images/videos/reel-lookbook.jpg" alt="reel lookbook" loading="lazy" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+          <svg viewBox="0 0 270 480" preserveAspectRatio="xMidYMid slice"><rect width="270" height="480" fill="#D9D6CF"/><rect x="24" y="90" width="68" height="300" fill="#14161A"/><rect x="101" y="90" width="68" height="300" fill="#F4F2EC"/><rect x="178" y="90" width="68" height="300" fill="#7A1F2B"/></svg>
+          <span class="dur">0:15</span><span class="play"></span><span class="bar"><i></i></span>
+        </div>
+        <figcaption><b>Lookbook story</b><span>Fashion · 9:16</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="sec-head"><h2>What I do</h2></div>
+    <ul class="services">
+      <li><strong>Brand Identity</strong></li>
+      <li><strong>Digital &amp; Social Media</strong></li>
+      <li><strong>Print &amp; Editorial</strong></li>
+      <li><strong>Video &amp; Motion Design</strong></li>
+      <li><strong>Art Direction &amp; Campaigns</strong></li>
+      <li><strong>Photo Editing &amp; Visual Content</strong></li>
+    </ul>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Have a brand to build?</h2>
+    <dl class="reach">
+      <div><dt>Phone</dt><dd><span class="val">0603804550</span><button class="copy" type="button" data-t="0603804550">Copy</button></dd></div>
+      <div><dt>Email</dt><dd><span class="val">imadwafi86@gmail.com</span><button class="copy" type="button" data-t="imadwafi86@gmail.com">Copy</button></dd></div>
+      <div><dt>Based</dt><dd><span class="val">Azrou, Morocco</span></dd></div>
+    </dl>
+    <div class="btns">
+      <a class="btn primary" href="https://instagram.com/neostreet__" rel="noopener">Message me on Instagram</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Imad El Ouafi · Graphic Designer &amp; Video Editor · Azrou, Morocco</div>
+</footer>
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.getAttribute('data-t'), old=b.textContent;
+    function done(){b.textContent='Copied';setTimeout(function(){b.textContent=old},1400)}
+    function fallback(){
+      var r=document.createRange(),v=b.parentNode.querySelector('.val');
+      r.selectNodeContents(v);var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);
+      b.textContent='Selected';setTimeout(function(){b.textContent=old},1400);
+    }
+    try{navigator.clipboard.writeText(t).then(done,fallback)}catch(e){fallback()}
+  });
+});
+
+document.querySelectorAll('[data-video]').forEach(function(el){
+  el.addEventListener('click',function(){
+    var u=el.getAttribute('data-video'); if(!u) return;
+    if(/\.(mp4|webm)$/i.test(u)){
+      var v=document.createElement('video'); v.src=u; v.controls=true; v.autoplay=true; v.playsInline=true;
+      v.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:3;background:#000';
+      el.appendChild(v);
+    } else { window.open(u,'_blank','noopener'); }
+  });
+});
+</script>
+</body>
+</html>
